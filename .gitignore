@@ -5,10 +5,8 @@ __pycache__/
 *.so
 *.egg
 *.egg-info
-*.jbl
-*.npy
-data
-tmp
+# *.jbl
+# *.npy
 
 # matlab
 *.mat
@@ -17,3 +15,4 @@ tmp
 .git
 
 venv
+data/*.mat
