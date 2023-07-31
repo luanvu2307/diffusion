@@ -1,0 +1,1 @@
+./data/gnd_paris6k.pkl
