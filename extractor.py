@@ -19,7 +19,7 @@ TRAINED = {
 
 def extract_single_img(img):
     # setting up the visible GPU
-    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+    # os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
     input_resol = 512; # resolution of input image, will resize to that if larger
     # input_resol = 1024; # resolution of input image, will resize to that if larger
@@ -39,13 +39,13 @@ def extract_single_img(img):
     net = init_network({'architecture':state['meta']['architecture'],'pooling':state['meta']['pooling'],'whitening':state['meta'].get('whitening')})
     net.load_state_dict(state['state_dict'])
     net.eval()
-    net.cuda()
+    # net.cuda()
     transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=state['meta']['mean'], std=state['meta']['std'])])
     # single-scale extraction
-    vec = extract_ss(net, transform(imresize(img, input_resol)).unsqueeze(0).cuda())
-    vec = vec.data.cpu().numpy()
-    # vec = extract_ss(net, transform(imresize(img, input_resol)).unsqueeze(0))
-    # vec = vec.data.numpy()
+    # vec = extract_ss(net, transform(imresize(img, input_resol)).unsqueeze(0).cuda())
+    # vec = vec.data.cpu().numpy()
+    vec = extract_ss(net, transform(imresize(img, input_resol)).unsqueeze(0))
+    vec = vec.data.numpy()
     return vec.reshape(1,2048)
 
 

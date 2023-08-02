@@ -14,7 +14,7 @@ with open('data/gnd_oxford5k.pkl', 'rb') as f:
 cache_dir = './tmp/oxford5k_resnet'
 dataset_name = 'oxford5k'
 query_path = './data/query/oxford5k_resnet_glob.npy'
-gallery_path = './data/gallery/oxford5k_resnet_glob.npy'
+gallery_path = './data/gallery/oxford5k_custom_glob.npy'
 gnd_path = './data/gnd_oxford5k.pkl'
 truncation_size = 1000
 kq = 10

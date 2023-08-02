@@ -20,3 +20,4 @@ oxbuild_images.tgz
 *.test.py
 oxford5k
 data/networks/*.pth
+data/whiten/retrieval-SfM-120k-resnet101-gem-whiten-22ab0c1.pth
