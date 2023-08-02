@@ -16,3 +16,7 @@ __pycache__/
 
 venv
 data/*.mat
+oxbuild_images.tgz
+*.test.py
+oxford5k
+data/networks/*.pth

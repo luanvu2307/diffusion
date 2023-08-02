@@ -1,0 +1,10 @@
+matplotlib
+opencv-python
+joblib
+tqdm
+numpy
+scikit-learn
+scipy
+pytorch
+torchvision
+Pillow
