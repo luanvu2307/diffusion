@@ -11,10 +11,10 @@ filename = "oxbuild_images.tgz"
 tf = tarfile.open(filename)
 tf.extractall('oxford5k')
 ```
-## Run
+## Instruction
 - Input: filename
 - Example: `bodleian_000132.jpg`. Find it from [images_demo](https://github.com/luanvu2307/diffusion/tree/master/images_demo)
-- function demo: [demo.py](https://github.com/luanvu2307/diffusion/blob/master/demo.py)
+- Output: list of path images
+## function demo: [demo.py](https://github.com/luanvu2307/diffusion/blob/master/demo.py)
  + demo(filename): search an image using feature extraction from based diffusion
  + demo_custom(filename): search an image using custom extractor
-- Result: list of path images
