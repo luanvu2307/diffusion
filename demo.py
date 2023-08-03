@@ -48,23 +48,23 @@ def demo_custom(filename):
     result = ['oxford5k/'+data["imlist"][i]+'.jpg' for i in idx_result]
     return result
 
-input_image = 'bodleian_000132.jpg'
-result = demo_custom(input_image)
-figure_size = 20
-index = 1
-plt.figure(figsize=(figure_size, figure_size))
-for i in result:
-    img = cv2.imread(i)
-    img = cv2.resize(img, (200, 200))
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+# input_image = 'bodleian_000132.jpg'
+# result = demo_custom(input_image)
+# figure_size = 20
+# index = 1
+# plt.figure(figsize=(figure_size, figure_size))
+# for i in result:
+#     img = cv2.imread(i)
+#     img = cv2.resize(img, (200, 200))
+#     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-    plt.subplot(2, 5, index), plt.imshow(img)
-    plt.title(i), plt.xticks([]), plt.yticks([])
+#     plt.subplot(2, 5, index), plt.imshow(img)
+#     plt.title(i), plt.xticks([]), plt.yticks([])
 
-    index += 1
-plt.subplots_adjust(hspace=-0.7, wspace=0.05)
+#     index += 1
+# plt.subplots_adjust(hspace=-0.7, wspace=0.05)
 
-plt.savefig('result.jpg')
+# plt.savefig('result.jpg')
 
-query_img = cv2.imread('oxford5k/'+input_image)
-cv2.imwrite('query_image.jpg', query_img)
+# query_img = cv2.imread('oxford5k/'+input_image)
+# cv2.imwrite('query_image.jpg', query_img)
