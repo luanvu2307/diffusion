@@ -5,6 +5,7 @@ tqdm
 numpy
 scikit-learn
 scipy
-pytorch
+torch
 torchvision
-Pillow
+Pillow==9.5.0
+faiss-cpu

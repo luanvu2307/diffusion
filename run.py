@@ -5,16 +5,26 @@ from extractor import extract_single_img
 from rank import search_unseen_query
 from dataset import Dataset
 from PIL import Image
-
+from cirtorch.datasets.datahelpers import default_loader
 
 with open('data/gnd_oxford5k.pkl', 'rb') as f:
     data = pickle.load(f)
 
 # prepare some global variables 
-cache_dir = './tmp/oxford5k_resnet'
+# cache_dir = './tmp/oxford5k_resnet'
+# dataset_name = 'oxford5k'
+# query_path = './data/query/oxford5k_resnet_glob.npy'
+# gallery_path = './data/gallery/oxford5k_custom_glob.npy'
+# gnd_path = './data/gnd_oxford5k.pkl'
+# truncation_size = 1000
+# kq = 10
+# kd = 50
+
+# ---------------- custom input image -----------------"
+cache_dir = './tmp/oxford5k_custom'
 dataset_name = 'oxford5k'
-query_path = './data/query/oxford5k_resnet_glob.npy'
-gallery_path = './data/gallery/oxford5k_custom_glob.npy'
+query_path = './data/query/oxford5k_custom_glob.npy'
+gallery_path = './data/gallery/gallery_oxford5k_custom_glob.npy'
 gnd_path = './data/gnd_oxford5k.pkl'
 truncation_size = 1000
 kq = 10
@@ -25,10 +35,10 @@ dataset = Dataset(query_path, gallery_path)
 queries, gallery = dataset.queries, dataset.gallery
 
 # input a specific image
-path = 'oxford5k/'+data["qimlist"][50]+'.jpg'
+path = 'oxford5k/'+data["qimlist"][54]+'.jpg'
 # query_input = queries[54].reshape(1, 2048)
-img_input = Image.open(path)
-query_input = extract_single_img(path)
+img_input = default_loader(path)
+query_input = extract_single_img(img_input)
 result = search_unseen_query(query_input, gallery, truncation_size, kd, kq, cache_dir, gnd_path, gamma=3)
 print(result)
 figure_size = 20

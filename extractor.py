@@ -25,15 +25,6 @@ def extract_single_img(img):
     # input_resol = 1024; # resolution of input image, will resize to that if larger
     scales = [1, 1/np.sqrt(2), 1/2] # re-scaling factors for multi-scale extraction
 
-    # sample image
-    # img_file = img
-    # if not path.exists(img_file):
-    #     os.system('wget https://raw.githubusercontent.com/gtolias/tma/master/data/input/'+img_file)
-    img = default_loader(img)
-    # plt.imshow(img)
-    # plt.show()
-
-
     print("use network trained with gem pooling and FC layer")
     state = load_url(TRAINED['rSfM120k-tl-resnet101-gem-w'], model_dir=os.path.join(get_data_root(), 'networks'))
     net = init_network({'architecture':state['meta']['architecture'],'pooling':state['meta']['pooling'],'whitening':state['meta'].get('whitening')})
